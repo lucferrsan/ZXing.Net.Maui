@@ -56,6 +56,8 @@ using Windows.Media.Devices;
 using Windows.Media.MediaProperties;
 using Microsoft.UI.Dispatching;
 using System.Linq;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.ApplicationModel;
 
 namespace ZXing.Net.Maui
 {

@@ -1,28 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<TargetFrameworks>net7.0;net7.0-android;net7.0-maccatalyst;net7.0-ios</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041</TargetFrameworks>
-		<PackageId>ZXing.Net.Maui.Comet</PackageId>
-		<Title>ZXing.Net.MAUI Barcode Scanner for .NET MAUI</Title>
-		<Authors>Redth</Authors>
-		<UseMaui>True</UseMaui>
-		<SingleProject>True</SingleProject>
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<UseSystemResourceKeys>false</UseSystemResourceKeys>
-		<Copyright>Copyright © Redth</Copyright>
-		<PackageProjectUrl>https://github.com/redth/BigIslandBarcoding</PackageProjectUrl>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<RepositoryUrl>https://github.com/redth/BigIslandBarcoding</RepositoryUrl>
-		<AssemblyFileVersion>$(PackageVersion)</AssemblyFileVersion>
-		<PublishRepositoryUrl>true</PublishRepositoryUrl>
-		<DebugType>portable</DebugType>
-		<OutputType>Library</OutputType>
-	</PropertyGroup>
-	<ItemGroup>
-		<PackageReference Include="ZXing.Net" Version="0.16.9" />
-		<PackageReference Include="Clancey.Comet" Version="0.3.467-beta" />
-	</ItemGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\ZXing.Net.MAUI\ZXing.Net.MAUI.csproj" />
-	</ItemGroup>
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net8.0-android;net8.0-maccatalyst;net8.0-ios</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041</TargetFrameworks>
+    <PackageId>ZXing.Net.Maui.Comet</PackageId>
+    <Title>ZXing.Net.MAUI Barcode Scanner for .NET MAUI</Title>
+    <Authors>Redth</Authors>
+    <UseMaui>True</UseMaui>
+    <SingleProject>True</SingleProject>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseSystemResourceKeys>false</UseSystemResourceKeys>
+    <Copyright>Copyright © Redth</Copyright>
+    <PackageProjectUrl>https://github.com/redth/BigIslandBarcoding</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/redth/BigIslandBarcoding</RepositoryUrl>
+    <AssemblyFileVersion>$(PackageVersion)</AssemblyFileVersion>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <DebugType>portable</DebugType>
+    <OutputType>Library</OutputType>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="ZXing.Net" Version="0.16.9" />
+    <PackageReference Include="Clancey.Comet" Version="0.3.467-beta" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZXing.Net.MAUI\ZXing.Net.MAUI.csproj" />
+  </ItemGroup>
 </Project>
